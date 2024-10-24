@@ -10,7 +10,7 @@ import { ProjectSummary } from 'layouts/Home/ProjectSummary';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
 import wave from 'assets/cupsCafe.png';
-import flow from 'assets/dashboard-dark.webp';
+
 const disciplines = ['Developer', 'Photoshopper', 'UI/UX Expert', 'SEO Optimizer', 'Brand-Builder'];
 
 export const Home = () => {
@@ -18,10 +18,11 @@ export const Home = () => {
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
   const projectOne = useRef();
+  const projectTwo = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, details];
+    const sections = [intro, projectOne, projectTwo, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -44,23 +45,17 @@ export const Home = () => {
       { rootMargin: '-100% 0px 0px 0px' }
     );
 
-    // Check if the refs are attached properly to DOM elements before observing
     sections.forEach(section => {
-      if (section.current) {
-        sectionObserver.observe(section.current);
-      }
+      sectionObserver.observe(section.current);
     });
 
-    if (intro.current) {
-      indicatorObserver.observe(intro.current);
-    }
+    indicatorObserver.observe(intro.current);
 
     return () => {
       sectionObserver.disconnect();
       indicatorObserver.disconnect();
     };
   }, [visibleSections]);
-
 
   return (
     <div className={styles.home}>
@@ -79,21 +74,43 @@ export const Home = () => {
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="FlowPoint"
-        description="Leading the Future of Project Management"
+        title="W-Supplements"
+        description="W SUPPLEMENTS enhances sports nutrition, personal performance, and community impact."
         buttonText="View Website"
-        buttonLink="http://useflowpointplatform.com"
+        buttonLink="https://timelydesign.org"
         model={{
           type: 'laptop',
-          alt: 'FlowPoint',
+          alt: 'A sports gel',
           textures: [
             {
-              srcSet: [flow, flow],
+              srcSet: [sprTexture, sprTextureLarge],
               placeholder: sprTexturePlaceholder,
             },
           ],
         }}
       />
+      <ProjectSummary
+        id="project-2"
+        sectionRef={projectTwo}
+        visible={visibleSections.includes(projectTwo.current)}
+        index={2}
+        title="Cups Cafe"
+        description="Cups Cafe is a non-profit coffee shop that provides food, drinks, and a safe space for people who need it."
+        buttonText="View Website"
+        buttonLink="https://cups-cafe-updated.vercel.app/"
+        model={{
+          type: 'laptop',
+          alt: 'App login screen',
+          textures: [
+            {
+              srcSet: [wave, wave],
+              placeholder: gamestackTexturePlaceholder,
+            }
+          ],
+        }}
+      />
+
+
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}
