@@ -10,7 +10,7 @@ import { ProjectSummary } from 'layouts/Home/ProjectSummary';
 import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
 import wave from 'assets/cupsCafe.png';
-import flow from 'assets/flowpoint.png';
+import flow from 'assets/dashboard-dark.webp';
 const disciplines = ['Developer', 'Photoshopper', 'UI/UX Expert', 'SEO Optimizer', 'Brand-Builder'];
 
 export const Home = () => {
@@ -18,11 +18,10 @@ export const Home = () => {
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
   const projectOne = useRef();
-  const projectTwo = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, details];
+    const sections = [intro, projectOne, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -45,17 +44,23 @@ export const Home = () => {
       { rootMargin: '-100% 0px 0px 0px' }
     );
 
+    // Check if the refs are attached properly to DOM elements before observing
     sections.forEach(section => {
-      sectionObserver.observe(section.current);
+      if (section.current) {
+        sectionObserver.observe(section.current);
+      }
     });
 
-    indicatorObserver.observe(intro.current);
+    if (intro.current) {
+      indicatorObserver.observe(intro.current);
+    }
 
     return () => {
       sectionObserver.disconnect();
       indicatorObserver.disconnect();
     };
   }, [visibleSections]);
+
 
   return (
     <div className={styles.home}>
@@ -74,27 +79,7 @@ export const Home = () => {
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="FlowPoint Website"
-        description="Leading the Future of Project Management"
-        buttonText="View Website"
-        buttonLink="https://www.flowpointplatform.com"
-        model={{
-          type: 'laptop',
-          alt: 'FlowPoint',
-          textures: [
-            {
-              srcSet: [flow, flow],
-              placeholder: sprTexturePlaceholder,
-            },
-          ],
-        }}
-      />
-      <ProjectSummary
-        id="project-2"
-        sectionRef={projectTwo}
-        visible={visibleSections.includes(projectTwo.current)}
-        index={1}
-        title="FlowPoint Platform"
+        title="FlowPoint"
         description="Leading the Future of Project Management"
         buttonText="View Website"
         buttonLink="http://useflowpointplatform.com"
@@ -109,9 +94,6 @@ export const Home = () => {
           ],
         }}
       />
-
-
-
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}
