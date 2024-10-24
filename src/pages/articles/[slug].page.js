@@ -14,6 +14,7 @@ import rehypePrism from '@mapbox/rehype-prism';
 import { generateOgImage } from './og-image';
 
 export default function PostPage({ frontmatter, code, timecode, ogImage }) {
+  // Memoize the MDX component
   const MDXComponent = useMemo(() => getMDXComponent(code), [code]);
 
   return (
@@ -27,7 +28,8 @@ export const getStaticProps = async ({ params }) => {
   const postFilePath = path.join(POSTS_PATH, `${params.slug}.mdx`);
   const source = fs.readFileSync(postFilePath, 'utf-8');
 
-  const { code, frontmatter, matter } = await bundleMDX({
+  // Use bundleMDX to transform the source content
+  const { code, frontmatter } = await bundleMDX({
     source,
     mdxOptions(options) {
       options.remarkPlugins = [...(options.remarkPlugins ?? [])];
@@ -43,9 +45,11 @@ export const getStaticProps = async ({ params }) => {
     },
   });
 
-  const { time } = readingTime(matter.content);
+  // Calculate reading time based on the raw MDX content
+  const { time } = readingTime(source);
   const timecode = formatTimecode(time);
 
+  // Generate Open Graph image
   const ogImage = await generateOgImage({
     title: frontmatter.title,
     date: frontmatter.date,
@@ -60,6 +64,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
+  // Get all file paths and convert them into slug parameters
   const paths = postFilePaths
     .map(filePath => filePath.replace(/\.mdx?$/, ''))
     .map(slug => ({ params: { slug } }));
