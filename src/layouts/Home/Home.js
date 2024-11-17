@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from './Home.module.css';
 import wave from 'assets/cupsCafe.png';
 
-const disciplines = ['Developer', 'Photoshopper', 'UI/UX Expert', 'SEO Optimizer', 'Brand-Builder'];
+const disciplines = ['Developer', 'Photoshopper', 'UI/UX Expert', 'SEO Optimizer', 'Brand-Builder', 'Goat-Fucker'];
 
 export const Home = () => {
   const [visibleSections, setVisibleSections] = useState([]);
