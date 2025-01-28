@@ -1,7 +1,6 @@
 import gamestackTexturePlaceholder from 'assets/cupsCafe.png';
-import sprTextureLarge from 'assets/spr-lesson-builder-dark-large.jpg';
 import sprTexturePlaceholder from 'assets/spr-lesson-builder-dark-placeholder.jpg';
-import sprTexture from 'assets/spr-lesson-builder-dark.jpg';
+import sprTexture from 'assets/flowpoint.png';
 import { Footer } from 'components/Footer';
 import { Meta } from 'components/Meta';
 import { Intro } from 'layouts/Home/Intro';
@@ -18,11 +17,10 @@ export const Home = () => {
   const [scrollIndicatorHidden, setScrollIndicatorHidden] = useState(false);
   const intro = useRef();
   const projectOne = useRef();
-  const projectTwo = useRef();
   const details = useRef();
 
   useEffect(() => {
-    const sections = [intro, projectOne, projectTwo, details];
+    const sections = [intro, projectOne, details];
 
     const sectionObserver = new IntersectionObserver(
       (entries, observer) => {
@@ -74,43 +72,21 @@ export const Home = () => {
         sectionRef={projectOne}
         visible={visibleSections.includes(projectOne.current)}
         index={1}
-        title="W-Supplements"
-        description="W SUPPLEMENTS enhances sports nutrition, personal performance, and community impact."
-        buttonText="View Website"
-        buttonLink="https://timelydesign.org"
+        title="Flowpoint"
+        description="A project management tool"
+        buttonText="View Case Study"
+        buttonLink="/projects/flowpoint"
         model={{
           type: 'laptop',
-          alt: 'A sports gel',
+          alt: 'A project management tool',
           textures: [
             {
-              srcSet: [sprTexture, sprTextureLarge],
+              srcSet: [sprTexture],
               placeholder: sprTexturePlaceholder,
             },
           ],
         }}
       />
-      <ProjectSummary
-        id="project-2"
-        sectionRef={projectTwo}
-        visible={visibleSections.includes(projectTwo.current)}
-        index={2}
-        title="Cups Cafe"
-        description="Cups Cafe is a non-profit coffee shop that provides food, drinks, and a safe space for people who need it."
-        buttonText="View Website"
-        buttonLink="https://cups-cafe-updated.vercel.app/"
-        model={{
-          type: 'laptop',
-          alt: 'App login screen',
-          textures: [
-            {
-              srcSet: [wave, wave],
-              placeholder: gamestackTexturePlaceholder,
-            }
-          ],
-        }}
-      />
-
-
       <Profile
         sectionRef={details}
         visible={visibleSections.includes(details.current)}

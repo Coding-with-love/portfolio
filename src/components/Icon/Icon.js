@@ -8,15 +8,12 @@ import Close from './svg/close.svg';
 import Copy from './svg/copy.svg';
 import Error from './svg/error.svg';
 import Figma from './svg/figma.svg';
-import Github from './svg/github.svg';
 import Link from './svg/link.svg';
 import Menu from './svg/menu.svg';
 import Pause from './svg/pause.svg';
 import Play from './svg/play.svg';
 import Send from './svg/send.svg';
-import Twitter from './svg/twitter.svg';
-import Instagram from './svg/instagram.svg';
-import linkedin from './svg/linkedin.svg';
+import { Instagram, Github, Linkedin } from 'lucide-react';
 
 export const icons = {
   arrowLeft: ArrowLeft,
@@ -33,9 +30,8 @@ export const icons = {
   pause: Pause,
   play: Play,
   send: Send,
-  twitter: Twitter,
   instagram: Instagram,
-  linkedin: linkedin,
+  linkedin: Linkedin,
 };
 
 export const Icon = ({ icon, className, ...rest }) => {

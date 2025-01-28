@@ -1,7 +1,7 @@
 
-import profileImgLarge from 'assets/profile-large.jpg';
+import profileImgLarge from 'assets/connor.jpeg';
 import profileImgPlaceholder from 'assets/profile-placeholder.jpg';
-import profileImg from 'assets/profile.jpg';
+import profileImg from 'assets/connor.jpeg';
 import { Button } from 'components/Button';
 import { DecoderText } from 'components/DecoderText';
 import { Divider } from 'components/Divider';
@@ -21,27 +21,27 @@ const ProfileText = ({ visible, titleId }) => (
       <DecoderText text="hello world! " start={visible} delay={500} />
     </Heading>
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      Hi! I&apos;m Connor Love, a high school senior from Medina, Ohio, who is really into web and graphic design. I&apos;ve spent the last five years diving into coding and the last three years sharpening my skills in graphic design.
-    </Text>
-
-
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-      You know, the best part about what I do is that it combines two things I love the most: technology and creativity. I get to take an idea - just a thought - and bring it to life with lines of code and design elements. The feeling I get when I see a website or an app I built working smoothly, looking good, and being helpful to people, it&apos;s like nothing else. It&apos;s like watching a bunch of Lego blocks turn into a spaceship or a castle. I guess that&apos;s why I&apos;m hooked!
-    </Text>
-
-
-    <Text className={styles.description} data-visible={visible} size="l" as="p">
-      Over the years, I&apos;ve become good at working with a lot of different coding languages, like HTML, CSS, Reactjs, Nextjs, Three.js, Java, PHP, SQL, SWIFT, Typescript, and even a bit of Python. This helps me to build interactive and sturdy online experiences that people love to use. And when it comes to design, knowing how to use tools like Photoshop, Illustrator, and After Effects gives me the chance to add my own unique style to everything I create.
+      Hi! I&apos;m Connor Love, a first-year Computer Science student at Kent State University with a 4.0 GPA, passionate about technology and creativity. I&apos;m from Medina, Ohio, and have been honing my skills in web development and graphic design for years. I&apos;m also a freelance web developer, eager to take on exciting projects.
     </Text>
 
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      But no matter how much I learn, there&apos;s always something new out there. That&apos;s why I&apos;m always learning, always pushing myself to get better. This way, my work stays fresh and up-to-date.
+      The best part about what I do is the mix of problem-solving and creative expression. I love bringing ideas to life, whether it&apos;s through building websites, coding apps, or creating impactful designs. It&apos;s a thrill to see something functional and visually engaging come together—like turning a concept into reality.
     </Text>
+
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      I can&apos;t wait to share my portfolio with you. Each piece in it is a little part of my journey, a window into how much I&apos;ve grown and what I can do. More than anything, it shows the love and passion I have for my work.
+      Over the years, I&apos;ve developed proficiency in multiple coding languages, including HTML, CSS, React.js, Next.js, Three.js, Java, PHP, SQL, SWIFT, TypeScript, and Python. On top of that, I&apos;m skilled in tools like Photoshop, Illustrator, and After Effects, which help me add unique design elements to my work. My background also includes working with C++ and MATLAB, showcasing a strong technical foundation.
     </Text>
+
     <Text className={styles.description} data-visible={visible} size="l" as="p">
-      If you want to check out the tools and software that I use check out the <Link href="/uses">Uses page</Link>.
+      I&apos;m always learning, striving to stay at the forefront of technology and design trends. Whether it&apos;s during my studies, freelancing, or past roles like my internship with Modern Telecom, I push myself to grow and create fresh, innovative solutions.
+    </Text>
+
+    <Text className={styles.description} data-visible={visible} size="l" as="p">
+      My portfolio is a reflection of my journey—from early projects to advanced builds. Each piece tells a story of how I&apos;ve evolved as a developer and designer, highlighting my passion for creating meaningful digital experiences.
+    </Text>
+
+    <Text className={styles.description} data-visible={visible} size="l" as="p">
+      Feel free to explore the tools and software I use on the <Link href="/uses">Uses page</Link>, and let&apos;s connect if you&apos;re interested in collaborations, freelance opportunities, or just want to chat about tech and design!
     </Text>
 
   </Fragment>
