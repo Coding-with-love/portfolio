@@ -57,7 +57,7 @@ typings/
 # dotenv environment variables file
 
 
-build/
+# build/
 build-storybook/
 public/sitemap.xml
 public/draco/
