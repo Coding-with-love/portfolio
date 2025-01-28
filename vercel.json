@@ -1,0 +1,9 @@
+{
+    "build": {
+      "commands": [
+        "bash build.sh",
+        "npm run build"
+      ]
+    }
+  }
+  
